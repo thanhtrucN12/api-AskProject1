@@ -1,0 +1,388 @@
+newman
+
+ASK-Authentication&teacher
+
+Iteration 1/5
+
+→ /sign-up-[S] a new student
+  POST http://ask-qa.portnov.com/api/v1/sign-up [200 OK, 569B, 986ms]
+  ✓  Status code is 200
+  ✓  Response time is less than 5000ms
+  ✓  Body matches = User was created
+
+→ localhost:3000/api/users_ activation code for reset pass
+  GET localhost:3000/api/users?_where=(email,eq,trudy.T0113422@gameofthrones.com) [200 OK, 593B, 180ms]
+  ✓  Status code is 200
+
+→ /activate/id/active code-[S]-before activate
+  GET http://ask-qa.portnov.com/api/v1/activate/11856/9aeff32f07dfa224e63c678b04f2575746a1930c [200 OK, 571B, 99ms]
+  ✓  Status code is 200
+  ✓  Response time is less than 200ms
+  ✓  Body matches =User was activated
+
+→ /sign-in-[S] as new student after activated 
+  POST http://ask-qa.portnov.com/api/v1/sign-in [200 OK, 910B, 95ms]
+  ✓  Status code is 200
+  ✓  Response time is less than 500ms
+  ✓  Verify users role= STUDENT
+
+→ /forgot-password-[S]
+  POST http://ask-qa.portnov.com/api/v1/forgot-password [200 OK, 582B, 770ms]
+  ✓  Status code is 200
+  ✓  Body matches = Reset password email was sent
+
+→ localhost:3000/api/users_ activation code for reset pass
+  GET localhost:3000/api/users?_where=(email,eq,trudy.T0113422@gameofthrones.com) [200 OK, 593B, 179ms]
+  ✓  Status code is 200
+
+→ /reset-password/id/activation-code-[S]
+  POST http://ask-qa.portnov.com/api/v1/reset-password/11856/7f91d2ceba92f8735a9c619b2fce3f1286747999 [200 OK, 573B, 101ms]
+  ✓  Status code is 200
+  ✓  Body matches = Password was changed
+
+→ /sign-in-[T] teacher api
+  POST http://ask-qa.portnov.com/api/v1/sign-in [200 OK, 898B, 101ms]
+  ✓  Status code is 200
+  ✓  Response time is less than 400ms
+  ✓  Verify user role= TEACHER
+
+→ /users-[T]-list_of_users
+  GET http://ask-qa.portnov.com/api/v1/users [200 OK, 21.87kB, 187ms]
+  ✓  Status code is 200
+  ✓  Response time is less than 2000ms
+
+→ /users/change-name/userID-[T]
+  PUT http://ask-qa.portnov.com/api/v1/users/change-name/11856 [200 OK, 768B, 99ms]
+  ✓  Status code is 200
+  ✓  Response time is less than 500ms
+  ✓  Body matches = User name was updated
+
+→ /users/change-group[T]
+  PUT http://ask-qa.portnov.com/api/v1/users/change-group/11856 [200 OK, 769B, 145ms]
+  ✓  Status code is 200
+  ✓  Response time is less than 500ms
+  ✓  Body matches = User group was updated
+
+→ /users/change-role[T]
+  PUT http://ask-qa.portnov.com/api/v1/users/change-role/11856 [200 OK, 768B, 97ms]
+  ✓  Status code is 200
+  ✓  Response time is less than 500ms
+  ✓  Body matches = User role was updated
+
+→ /users/studentID [T]- delete user
+  DELETE http://ask-qa.portnov.com/api/v1/users/11856 [200 OK, 768B, 98ms]
+  ✓  Status code is 200
+  ✓  Response time is less than 200ms
+  ✓  Body matches = success
+
+Iteration 2/5
+
+→ /sign-up-[S] a new student
+  POST http://ask-qa.portnov.com/api/v1/sign-up [200 OK, 569B, 810ms]
+  ✓  Status code is 200
+  ✓  Response time is less than 5000ms
+  ✓  Body matches = User was created
+
+→ localhost:3000/api/users_ activation code for reset pass
+  GET localhost:3000/api/users?_where=(email,eq,trudy.T0113422@gameofthrones.com) [200 OK, 593B, 181ms]
+  ✓  Status code is 200
+
+→ /activate/id/active code-[S]-before activate
+  GET http://ask-qa.portnov.com/api/v1/activate/11857/d5951120a27551cb6d3b95599bd09b18dea2f6d8 [200 OK, 571B, 97ms]
+  ✓  Status code is 200
+  ✓  Response time is less than 200ms
+  ✓  Body matches =User was activated
+
+→ /sign-in-[S] as new student after activated 
+  POST http://ask-qa.portnov.com/api/v1/sign-in [200 OK, 910B, 95ms]
+  ✓  Status code is 200
+  ✓  Response time is less than 500ms
+  ✓  Verify users role= STUDENT
+
+→ /forgot-password-[S]
+  POST http://ask-qa.portnov.com/api/v1/forgot-password [200 OK, 582B, 744ms]
+  ✓  Status code is 200
+  ✓  Body matches = Reset password email was sent
+
+→ localhost:3000/api/users_ activation code for reset pass
+  GET localhost:3000/api/users?_where=(email,eq,trudy.T0113422@gameofthrones.com) [200 OK, 593B, 166ms]
+  ✓  Status code is 200
+
+→ /reset-password/id/activation-code-[S]
+  POST http://ask-qa.portnov.com/api/v1/reset-password/11857/771239b8cf9a4ff3a0438ce011498d9db54ebcf3 [200 OK, 573B, 95ms]
+  ✓  Status code is 200
+  ✓  Body matches = Password was changed
+
+→ /sign-in-[T] teacher api
+  POST http://ask-qa.portnov.com/api/v1/sign-in [200 OK, 898B, 90ms]
+  ✓  Status code is 200
+  ✓  Response time is less than 400ms
+  ✓  Verify user role= TEACHER
+
+→ /users-[T]-list_of_users
+  GET http://ask-qa.portnov.com/api/v1/users [200 OK, 21.87kB, 186ms]
+  ✓  Status code is 200
+  ✓  Response time is less than 2000ms
+
+→ /users/change-name/userID-[T]
+  PUT http://ask-qa.portnov.com/api/v1/users/change-name/11857 [200 OK, 768B, 99ms]
+  ✓  Status code is 200
+  ✓  Response time is less than 500ms
+  ✓  Body matches = User name was updated
+
+→ /users/change-group[T]
+  PUT http://ask-qa.portnov.com/api/v1/users/change-group/11857 [200 OK, 769B, 96ms]
+  ✓  Status code is 200
+  ✓  Response time is less than 500ms
+  ✓  Body matches = User group was updated
+
+→ /users/change-role[T]
+  PUT http://ask-qa.portnov.com/api/v1/users/change-role/11857 [200 OK, 768B, 96ms]
+  ✓  Status code is 200
+  ✓  Response time is less than 500ms
+  ✓  Body matches = User role was updated
+
+→ /users/studentID [T]- delete user
+  DELETE http://ask-qa.portnov.com/api/v1/users/11857 [200 OK, 768B, 102ms]
+  ✓  Status code is 200
+  ✓  Response time is less than 200ms
+  ✓  Body matches = success
+
+Iteration 3/5
+
+→ /sign-up-[S] a new student
+  POST http://ask-qa.portnov.com/api/v1/sign-up [200 OK, 569B, 805ms]
+  ✓  Status code is 200
+  ✓  Response time is less than 5000ms
+  ✓  Body matches = User was created
+
+→ localhost:3000/api/users_ activation code for reset pass
+  GET localhost:3000/api/users?_where=(email,eq,trudy.T0113422@gameofthrones.com) [200 OK, 593B, 375ms]
+  ✓  Status code is 200
+
+→ /activate/id/active code-[S]-before activate
+  GET http://ask-qa.portnov.com/api/v1/activate/11858/86af23a0e58104c6fa2d0ca9df94d05493976fe3 [200 OK, 571B, 96ms]
+  ✓  Status code is 200
+  ✓  Response time is less than 200ms
+  ✓  Body matches =User was activated
+
+→ /sign-in-[S] as new student after activated 
+  POST http://ask-qa.portnov.com/api/v1/sign-in [200 OK, 910B, 95ms]
+  ✓  Status code is 200
+  ✓  Response time is less than 500ms
+  ✓  Verify users role= STUDENT
+
+→ /forgot-password-[S]
+  POST http://ask-qa.portnov.com/api/v1/forgot-password [200 OK, 582B, 872ms]
+  ✓  Status code is 200
+  ✓  Body matches = Reset password email was sent
+
+→ localhost:3000/api/users_ activation code for reset pass
+  GET localhost:3000/api/users?_where=(email,eq,trudy.T0113422@gameofthrones.com) [200 OK, 593B, 175ms]
+  ✓  Status code is 200
+
+→ /reset-password/id/activation-code-[S]
+  POST http://ask-qa.portnov.com/api/v1/reset-password/11858/3efdd6fd43d455e9f9d3fc7afbb37beae542692f [200 OK, 573B, 94ms]
+  ✓  Status code is 200
+  ✓  Body matches = Password was changed
+
+→ /sign-in-[T] teacher api
+  POST http://ask-qa.portnov.com/api/v1/sign-in [200 OK, 898B, 97ms]
+  ✓  Status code is 200
+  ✓  Response time is less than 400ms
+  ✓  Verify user role= TEACHER
+
+→ /users-[T]-list_of_users
+  GET http://ask-qa.portnov.com/api/v1/users [200 OK, 21.87kB, 187ms]
+  ✓  Status code is 200
+  ✓  Response time is less than 2000ms
+
+→ /users/change-name/userID-[T]
+  PUT http://ask-qa.portnov.com/api/v1/users/change-name/11858 [200 OK, 768B, 99ms]
+  ✓  Status code is 200
+  ✓  Response time is less than 500ms
+  ✓  Body matches = User name was updated
+
+→ /users/change-group[T]
+  PUT http://ask-qa.portnov.com/api/v1/users/change-group/11858 [200 OK, 769B, 97ms]
+  ✓  Status code is 200
+  ✓  Response time is less than 500ms
+  ✓  Body matches = User group was updated
+
+→ /users/change-role[T]
+  PUT http://ask-qa.portnov.com/api/v1/users/change-role/11858 [200 OK, 768B, 93ms]
+  ✓  Status code is 200
+  ✓  Response time is less than 500ms
+  ✓  Body matches = User role was updated
+
+→ /users/studentID [T]- delete user
+  DELETE http://ask-qa.portnov.com/api/v1/users/11858 [200 OK, 768B, 117ms]
+  ✓  Status code is 200
+  ✓  Response time is less than 200ms
+  ✓  Body matches = success
+
+Iteration 4/5
+
+→ /sign-up-[S] a new student
+  POST http://ask-qa.portnov.com/api/v1/sign-up [200 OK, 569B, 776ms]
+  ✓  Status code is 200
+  ✓  Response time is less than 5000ms
+  ✓  Body matches = User was created
+
+→ localhost:3000/api/users_ activation code for reset pass
+  GET localhost:3000/api/users?_where=(email,eq,trudy.T0113422@gameofthrones.com) [200 OK, 593B, 174ms]
+  ✓  Status code is 200
+
+→ /activate/id/active code-[S]-before activate
+  GET http://ask-qa.portnov.com/api/v1/activate/11859/2103ef92e2d25c149be62887e5c15a6e4f497c41 [200 OK, 571B, 99ms]
+  ✓  Status code is 200
+  ✓  Response time is less than 200ms
+  ✓  Body matches =User was activated
+
+→ /sign-in-[S] as new student after activated 
+  POST http://ask-qa.portnov.com/api/v1/sign-in [200 OK, 910B, 97ms]
+  ✓  Status code is 200
+  ✓  Response time is less than 500ms
+  ✓  Verify users role= STUDENT
+
+→ /forgot-password-[S]
+  POST http://ask-qa.portnov.com/api/v1/forgot-password [200 OK, 582B, 829ms]
+  ✓  Status code is 200
+  ✓  Body matches = Reset password email was sent
+
+→ localhost:3000/api/users_ activation code for reset pass
+  GET localhost:3000/api/users?_where=(email,eq,trudy.T0113422@gameofthrones.com) [200 OK, 593B, 166ms]
+  ✓  Status code is 200
+
+→ /reset-password/id/activation-code-[S]
+  POST http://ask-qa.portnov.com/api/v1/reset-password/11859/6b13770a161ce46d95cc771885125494e85605fb [200 OK, 573B, 96ms]
+  ✓  Status code is 200
+  ✓  Body matches = Password was changed
+
+→ /sign-in-[T] teacher api
+  POST http://ask-qa.portnov.com/api/v1/sign-in [200 OK, 898B, 93ms]
+  ✓  Status code is 200
+  ✓  Response time is less than 400ms
+  ✓  Verify user role= TEACHER
+
+→ /users-[T]-list_of_users
+  GET http://ask-qa.portnov.com/api/v1/users [200 OK, 21.87kB, 187ms]
+  ✓  Status code is 200
+  ✓  Response time is less than 2000ms
+
+→ /users/change-name/userID-[T]
+  PUT http://ask-qa.portnov.com/api/v1/users/change-name/11859 [200 OK, 768B, 99ms]
+  ✓  Status code is 200
+  ✓  Response time is less than 500ms
+  ✓  Body matches = User name was updated
+
+→ /users/change-group[T]
+  PUT http://ask-qa.portnov.com/api/v1/users/change-group/11859 [200 OK, 769B, 99ms]
+  ✓  Status code is 200
+  ✓  Response time is less than 500ms
+  ✓  Body matches = User group was updated
+
+→ /users/change-role[T]
+  PUT http://ask-qa.portnov.com/api/v1/users/change-role/11859 [200 OK, 768B, 96ms]
+  ✓  Status code is 200
+  ✓  Response time is less than 500ms
+  ✓  Body matches = User role was updated
+
+→ /users/studentID [T]- delete user
+  DELETE http://ask-qa.portnov.com/api/v1/users/11859 [200 OK, 768B, 96ms]
+  ✓  Status code is 200
+  ✓  Response time is less than 200ms
+  ✓  Body matches = success
+
+Iteration 5/5
+
+→ /sign-up-[S] a new student
+  POST http://ask-qa.portnov.com/api/v1/sign-up [200 OK, 569B, 751ms]
+  ✓  Status code is 200
+  ✓  Response time is less than 5000ms
+  ✓  Body matches = User was created
+
+→ localhost:3000/api/users_ activation code for reset pass
+  GET localhost:3000/api/users?_where=(email,eq,trudy.T0113422@gameofthrones.com) [200 OK, 593B, 176ms]
+  ✓  Status code is 200
+
+→ /activate/id/active code-[S]-before activate
+  GET http://ask-qa.portnov.com/api/v1/activate/11860/07685edf41b6032b3bfbf88e38765d147b9fd3aa [200 OK, 571B, 97ms]
+  ✓  Status code is 200
+  ✓  Response time is less than 200ms
+  ✓  Body matches =User was activated
+
+→ /sign-in-[S] as new student after activated 
+  POST http://ask-qa.portnov.com/api/v1/sign-in [200 OK, 910B, 95ms]
+  ✓  Status code is 200
+  ✓  Response time is less than 500ms
+  ✓  Verify users role= STUDENT
+
+→ /forgot-password-[S]
+  POST http://ask-qa.portnov.com/api/v1/forgot-password [200 OK, 582B, 1106ms]
+  ✓  Status code is 200
+  ✓  Body matches = Reset password email was sent
+
+→ localhost:3000/api/users_ activation code for reset pass
+  GET localhost:3000/api/users?_where=(email,eq,trudy.T0113422@gameofthrones.com) [200 OK, 593B, 175ms]
+  ✓  Status code is 200
+
+→ /reset-password/id/activation-code-[S]
+  POST http://ask-qa.portnov.com/api/v1/reset-password/11860/8d641f7985a3ad76cfc369e4f7b5b39d0b620c55 [200 OK, 573B, 97ms]
+  ✓  Status code is 200
+  ✓  Body matches = Password was changed
+
+→ /sign-in-[T] teacher api
+  POST http://ask-qa.portnov.com/api/v1/sign-in [200 OK, 898B, 94ms]
+  ✓  Status code is 200
+  ✓  Response time is less than 400ms
+  ✓  Verify user role= TEACHER
+
+→ /users-[T]-list_of_users
+  GET http://ask-qa.portnov.com/api/v1/users [200 OK, 21.87kB, 180ms]
+  ✓  Status code is 200
+  ✓  Response time is less than 2000ms
+
+→ /users/change-name/userID-[T]
+  PUT http://ask-qa.portnov.com/api/v1/users/change-name/11860 [200 OK, 768B, 102ms]
+  ✓  Status code is 200
+  ✓  Response time is less than 500ms
+  ✓  Body matches = User name was updated
+
+→ /users/change-group[T]
+  PUT http://ask-qa.portnov.com/api/v1/users/change-group/11860 [200 OK, 769B, 102ms]
+  ✓  Status code is 200
+  ✓  Response time is less than 500ms
+  ✓  Body matches = User group was updated
+
+→ /users/change-role[T]
+  PUT http://ask-qa.portnov.com/api/v1/users/change-role/11860 [200 OK, 768B, 96ms]
+  ✓  Status code is 200
+  ✓  Response time is less than 500ms
+  ✓  Body matches = User role was updated
+
+→ /users/studentID [T]- delete user
+  DELETE http://ask-qa.portnov.com/api/v1/users/11860 [200 OK, 768B, 95ms]
+  ✓  Status code is 200
+  ✓  Response time is less than 200ms
+  ✓  Body matches = success
+
+[90m┌─────────────────────────[39m[90m┬─────────────────────[39m[90m┬────────────────────┐[39m
+[90m│[39m                         [90m│[39m            executed [90m│[39m             failed [90m│[39m
+[90m├─────────────────────────[39m[90m┼─────────────────────[39m[90m┼────────────────────┤[39m
+[90m│[39m              iterations [90m│[39m                   5 [90m│[39m                  0 [90m│[39m
+[90m├─────────────────────────[39m[90m┼─────────────────────[39m[90m┼────────────────────┤[39m
+[90m│[39m                requests [90m│[39m                  65 [90m│[39m                  0 [90m│[39m
+[90m├─────────────────────────[39m[90m┼─────────────────────[39m[90m┼────────────────────┤[39m
+[90m│[39m            test-scripts [90m│[39m                  65 [90m│[39m                  0 [90m│[39m
+[90m├─────────────────────────[39m[90m┼─────────────────────[39m[90m┼────────────────────┤[39m
+[90m│[39m      prerequest-scripts [90m│[39m                   0 [90m│[39m                  0 [90m│[39m
+[90m├─────────────────────────[39m[90m┼─────────────────────[39m[90m┼────────────────────┤[39m
+[90m│[39m              assertions [90m│[39m                 160 [90m│[39m                  0 [90m│[39m
+[90m├─────────────────────────┴─────────────────────┴────────────────────┤[39m
+[90m│[39m total run duration: 16.3s                                          [90m│[39m
+[90m├────────────────────────────────────────────────────────────────────┤[39m
+[90m│[39m total data received: 114.98kB (approx)                             [90m│[39m
+[90m├────────────────────────────────────────────────────────────────────┤[39m
+[90m│[39m average response time: 234ms [min: 90ms, max: 1106ms, s.d.: 267ms] [90m│[39m
+[90m└────────────────────────────────────────────────────────────────────┘[39m
